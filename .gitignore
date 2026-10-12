@@ -1,0 +1,32 @@
+# Visual Studio & Build artifacts in src/
+src/**/bin/
+src/**/obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+
+# Roslyn / Visual Studio
+*.pidb
+*.ide
+*.sublime-project
+*.sublime-workspace
+
+# Windows image cache
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp

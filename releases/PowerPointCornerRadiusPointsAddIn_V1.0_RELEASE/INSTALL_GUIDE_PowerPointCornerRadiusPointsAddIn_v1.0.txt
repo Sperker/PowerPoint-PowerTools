@@ -1,0 +1,16 @@
+Installation Guide - PowerPoint Corner Radius Points Add-In v1.0
+==================================================================
+
+Recommended Installation (Quick & Clean):
+1. Close PowerPoint completely.
+2. Inside the Release folder, double-click "Bereinigen_und_Installieren.cmd".
+   - Closes any hanging PowerPoint background instances.
+   - Cleans any obsolete VSTO deployment keys.
+   - Launches setup.exe cleanly for Version 1.0.
+3. Click "Install" in the setup wizard.
+4. Launch PowerPoint: Under the "Add-Ins" tab, "Corner Radius v1.0" is ready!
+
+Quick Access Toolbar (QAT):
+- Right-click either "Copy Radius" or "Apply Radius" in the ribbon.
+- Select "Add to Quick Access Toolbar".
+- The buttons will now be accessible from the very top bar in PowerPoint.

@@ -1,0 +1,23 @@
+Installationsanleitung - PowerPoint Stay On Slide Points Add-In v1.1
+====================================================================
+
+Empfohlene Installation (Schnell & Automatisch):
+1. Schließe PowerPoint vollständig.
+2. Führe im Release-Ordner die Datei "Bereinigen_und_Installieren.cmd" aus.
+   - Schließt eventuell im Hintergrund laufende PowerPoint-Instanzen.
+   - Bereinigt eventuelle veraltete VSTO-Schlüssel.
+   - Startet setup.exe für Version 1.1 sauber.
+3. Klicke im Installationsdialog auf "Installieren".
+4. PowerPoint öffnen: Im Reiter "Add-Ins" ist "Stay on Slide" nun aktiv!
+
+ClickOnce / Veröffentlichung per MSBuild:
+msbuild PowerPointStayOnSlidePointsAddIn.csproj /target:Publish /p:Configuration=Release
+
+Manuelle Registrierung / VSTO Add-In Registrierung:
+Der VSTO-Add-In-Eintrag wird in der Windows-Registrierung unter:
+HKEY_CURRENT_USER\Software\Microsoft\Office\PowerPoint\Addins\PowerPointStayOnSlidePointsAddIn
+abgelegt mit:
+- Description: "PowerPoint Stay On Slide Points Add-In"
+- FriendlyName: "PowerPointStayOnSlidePointsAddIn"
+- LoadBehavior: 3 (beim Start automatisch laden)
+- Manifest: Pfad zur .vsto-Datei

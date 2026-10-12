@@ -1,0 +1,28 @@
+Problembehandlung - PowerPoint Stay On Slide Points Add-In v1.0
+================================================================
+
+1. Das Menüband / der Toggle-Button wird nicht angezeigt:
+- Prüfe unter "Datei" -> "Optionen" -> "Add-Ins":
+  * Steht das Add-In unter "Deaktivierte Anwendungs-Add-Ins"?
+    Falls ja: Wähle unten "Verwalten: Deaktivierte Elemente" -> "Gehe zu..." und aktiviere es wieder.
+  * Steht es unter "Inaktive Anwendungs-Add-Ins"?
+    Wähle unten "Verwalten: COM-Add-Ins" -> "Gehe zu..." und setze den Haken bei "PowerPointStayOnSlidePointsAddIn".
+- Stelle sicher, dass die "Visual Studio 2010 Tools for Office Runtime" installiert ist.
+
+2. Ich möchte die Folie wechseln, aber es geht nicht:
+- Der Modus "Stay on Slide" sperrt das Weiterschalten auf dem Hauptfolienbereich absichtlich.
+- Wechsle die Folie ganz einfach durch Klicken auf eine Folienminiatur in der linken Sidebar!
+- Oder deaktiviere den Toggle-Button "Stay on Slide" im Menüband.
+
+3. Das Scrollen fühlt sich zu langsam oder zu schnell an:
+- Klicke im Menüband auf "Settings".
+- Passe die "Mausrad-Schrittweite beim Folien-Scrollen (Zeilen)" an (z. B. auf 4 oder 5 Zeilen).
+
+4. Ich möchte mit BildAuf / BildAb weiterblättern:
+- Klicke im Menüband auf "Settings".
+- Deaktiviere die Checkbox "Folienwechsel über Tastatur (BildAuf / BildAb) auf der Folie blockieren".
+
+5. Ich sehe transparente Anker im Auswahlbereich (Selection Pane):
+- Die temporären Anker tragen den Namen "__PPT_STAYONSLIDE_ANCHOR__...".
+- Sie werden vor jedem Speichern, Drucken oder beim Beenden von PowerPoint automatisch rückstandslos entfernt.
+- Solltest du den erweiterten Montagebereich nicht benötigen, kannst du ihn in den Einstellungen jederzeit deaktivieren.

@@ -1,0 +1,58 @@
+PowerPoint Pan & Zoom Add-in - Changelog
+=======================================
+
+v1.7 - Packaging & Release Readiness Release
+--------------------------------------------
+This release keeps the stable v1.6 add-in behavior unchanged and improves the distribution package for easier sharing, installation and support.
+
+Changes:
+- Updated version metadata to v1.7.
+- Added README_PowerPointPanZoomAddIn_v1.7.txt.
+- Added INSTALL_GUIDE_PowerPointPanZoomAddIn_v1.7.txt.
+- Added TROUBLESHOOTING_PowerPointPanZoomAddIn_v1.7.txt.
+- Added RELEASE_CHECKLIST_PowerPointPanZoomAddIn_v1.7.txt.
+- Added LICENSE_NOTICE_MaterialIcons.txt.
+- Updated changelog for v1.7.
+- Kept the stable v1.6 Material Icons integration unchanged.
+- Kept the stable v1.5 settings functionality unchanged.
+- Kept the stable pan and zoom core behavior unchanged.
+
+v1.6 - Material Icons Release
+-----------------------------
+This release removes the dependency on Office built-in imageMso icons and replaces them with embedded Google Material Symbols PNG icons.
+
+Changes:
+- Updated version metadata to v1.6.
+- Replaced imageMso-based ribbon icons with embedded Material icons.
+- Added RibbonIconProvider.cs for loading embedded PNG resources.
+- Added getImage callback support in PanZoomRibbon.cs.
+- Added fallback icons if an embedded PNG cannot be found.
+
+v1.5 - Settings Polish & Diagnostics Release
+--------------------------------------------
+This release improves the v1.4 Settings experience and adds lightweight diagnostics information.
+
+Changes:
+- Improved the Settings dialog layout with grouped sections.
+- Improved zoom level validation.
+- Added the settings file path to the About dialog.
+
+v1.4 - Settings Release
+-----------------------
+This release adds a user-facing settings dialog while keeping the proven pan and zoom behavior stable.
+
+v1.3 - UI & Documentation Polish Release
+----------------------------------------
+This release adds visible usability improvements while keeping the proven pan and zoom behavior stable.
+
+v1.2 - Internal Configuration & Maintainability Release
+------------------------------------------------------
+This release keeps the proven pan and zoom behavior stable while improving maintainability.
+
+v1.1 - Packaging & Usability Release
+------------------------------------
+Released a usability-focused update based on the stable v1.0 implementation.
+
+v1.0 - Initial Release
+----------------------
+Released the first stable version of the PowerPoint Pan & Zoom Add-in.

@@ -1,0 +1,17 @@
+Troubleshooting - PowerPoint Corner Radius Points Add-In v1.0
+=============================================================
+
+1. The "Apply Radius" button is grayed out / disabled:
+- This is normal: No radius has been copied yet and no manual radius is set in Settings.
+- Select a shape with rounded corners and click "Copy Radius", or enter a value in "Settings" and click "Set Radius".
+
+2. Message "The selected shape does not have an adjustable corner radius":
+- Ensure you have selected a shape that actually supports rounded corners (e.g. a rounded rectangle).
+- Standard right-angled shapes do not have an existing corner radius to copy from.
+
+3. Rounded corners appear circular / pill-shaped on very small objects:
+- PowerPoint limits corner rounding to a maximum of 50% of the shorter side (capsule limit).
+- If the target shape's shorter side is smaller than twice the radius, PowerPoint rounds it to the maximum geometric extent.
+
+4. Installation error ("An application with the same identity is already installed"):
+- Run "Bereinigen_und_Installieren.cmd" from the release directory to clean any leftover VSTO metadata.

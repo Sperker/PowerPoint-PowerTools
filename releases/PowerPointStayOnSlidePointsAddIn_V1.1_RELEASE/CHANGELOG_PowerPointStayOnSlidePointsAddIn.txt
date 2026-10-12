@@ -1,0 +1,46 @@
+CHANGELOG - PowerPoint Stay On Slide Points Add-In
+==================================================
+
+Version 1.1 (Oktober 2026)
+--------------------------
+- Echter Hard-Stop beim Scrollen (Mausrad & Tastatur):
+  * Exakte Überwachung der Canvas-Bildschirmgrenzen (`PointsToScreenPixelsY`).
+  * Sauberes physikalisches Abstoppen des Scrollvorgangs vor Erreichen des internen PowerPoint-Grenzwerts.
+  * Vollständige Beseitigung von Scrollbar-Zucken ("Zupfen"), Endlosschleifen und Motherboard-Pieptönen bei schnellem oder fortlaufendem Mausrad-Scrollen an den Folienrändern.
+- Markierungs- und Auswahlerhalt (Selection Preservation):
+  * Automatisches Tracking der selektierten Objekte und Textfelder (`WindowSelectionChange`).
+  * Nahtlose Wiederherstellung aller markierten Elemente nach unbeabsichtigtem Folienwechsel.
+- Viewport-Wiederherstellung (`ScrollIntoView`):
+  * Kein Zurücksetzen an den oberen Folienrand mehr, wenn am unteren Ende gescrollt wurde.
+- Google Material Symbol Frame-Inspect-Icon für das Ribbon (normierte 30x30 px Optik mit 9 px Randabstand, exakt harmonisiert mit allen anderen Add-Ins).
+- Bereinigungs- und Installations-Tool (`Bereinigen_und_Installieren.cmd`):
+  * Automatische Beseitigung verwaister VSTO-Identitäten und Registry-Einträge zur Vermeidung von ClickOnce-Installationskonflikten.
+- Optimierter Standard für den Montagebereich: 800 pt.
+
+Version 1.0 (Oktober 2026)
+--------------------------
+- Erstveröffentlichung des Add-Ins.
+- Ribbon Integration im Reiter "Add-Ins":
+  * Großer Toggle-Button "Stay on Slide".
+  * Vertikale Utility-Box mit "Settings" und "About" Buttons.
+  * Verwendung von Material Icons für Settings und About, analog zu den anderen Plugins.
+- Stay-On-Slide Schutz:
+  * Low-Level Win32 Mouse Hook (`WH_MOUSE_LL`) zur selektiven Interzeption von Mausrad-Events.
+  * Automatische Trennung zwischen linker Sidebar (Thumbnail Pane) und Haupt-Folienbereich (Canvas):
+    - In der linken Sidebar funktioniert das Scrollen und Klicken zu 100% nativ.
+    - Auf dem Folienbereich stoppt das Scrollen am Rand, anstatt die Folie zu wechseln.
+  * Low-Level Win32 Keyboard Hook (`WH_KEYBOARD_LL`) zum Blockieren von unbeabsichtigten
+    Folienwechseln per BildAuf / BildAb auf der Folie (standardmäßig aktiv, über Checkbox abschaltbar).
+  * SlideSelectionChanged Sicherheitswächter: Erkennt versehentliche Folienwechsel und
+    stellt die aktive Folie nahtlos wieder her, falls kein Klick in der Sidebar stattfand.
+- Automatischer Montagebereich (Virtual Pasteboard):
+  * Automatische Platzierung unsichtbarer, transparenter Randanker ober- und unterhalb der Folie.
+  * Frei konfigurierbare Puffergröße (Standard: 800 pt; Bereich 200 - 5000 pt).
+  * Erlaubt freies Arbeiten und Platzieren von Objekten über die Folienkanten hinaus.
+  * Automatische rückstandslose Bereinigung vor dem Speichern, Drucken oder Schließen.
+- Einstellungsdialog (SettingsForm):
+  * Montagebereich-Puffergröße.
+  * Checkbox zur Aktivierung/Deaktivierung des Montagebereichs.
+  * Checkbox zur Tastaturnavigations-Sperre.
+  * Schrittweite des Mausrads.
+  * INI-basierte Speicherung unter %AppData%\PowerPointStayOnSlidePointsAddIn\settings.ini.

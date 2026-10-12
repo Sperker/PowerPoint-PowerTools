@@ -1,0 +1,37 @@
+PowerPoint Corner Radius Points Add-In v1.0 - Release Checklist
+================================================================
+
+Source preparation
+------------------
+[x] Source directory configured: PowerPointCornerRadiusPointsAddIn_V1.0_SOURCE.
+[x] AddInInfo.cs: Version = "1.0", Ribbon group label "Corner Radius v1.0".
+[x] AssemblyInfo.cs: Version 1.0.0.0.
+[x] Project and solution set up cleanly.
+
+Icon Resources (Google Material Symbols Outlined)
+-------------------------------------------------
+[x] Icons\rounded_corner.png (Google Material Symbol "Rounded Corner") embedded as resource.
+[x] Icons\content_paste.png (Google Material Symbol "Content Paste Go") embedded as resource.
+[x] Icons\settings.png embedded as resource.
+[x] Icons\info.png embedded as resource.
+[x] Programmatic fallback icon generator implemented in RibbonIconProvider.
+
+Build & Publish
+---------------
+[x] Release Build successful (0 errors, 0 warnings).
+[x] Release Publish successful (0 errors, 0 warnings).
+[x] Bereinigen_und_Installieren.cmd configured.
+
+Features & Functionality
+------------------------
+[x] "Copy Radius" reads absolute radius in pt.
+[x] "Apply Radius" calculates and applies required relative adjustment for each target shape.
+[x] "Apply Radius" dynamically disabled when no radius is available.
+[x] Automatic conversion of plain rectangles to rounded rectangles on apply.
+[x] Quick Access Toolbar (QAT) support.
+[x] Configurable sound feedback on copy (default: enabled).
+[x] Configurable message notification on copy (default: disabled).
+[x] Manual radius in Settings with "Set Radius" button.
+[x] No default radius preset on clean install.
+[x] About dialog with version details, current active radius, and settings path.
+[x] Full English user interface across all dialogs, tooltips, and messages.

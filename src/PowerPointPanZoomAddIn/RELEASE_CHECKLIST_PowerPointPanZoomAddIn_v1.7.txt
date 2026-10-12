@@ -1,0 +1,58 @@
+PowerPoint Pan & Zoom Add-in v1.7 - Release Checklist
+====================================================
+
+Source preparation
+------------------
+[ ] Work in a copied v1.7 source folder, not in the v1.6 release folder.
+[ ] AddInInfo.cs shows Version = "1.7".
+[ ] Ribbon label shows Pan & Zoom v1.7.
+[ ] Assembly version is set to 1.7.0.0.
+[ ] File version is set to 1.7.0.0.
+[ ] Publish version is set to 1.7.0.0.
+
+Icon resources
+--------------
+[ ] Icons folder is inside the C# project.
+[ ] Icons\pan_tool.png is included in the project.
+[ ] Icons\ads_click.png is included in the project.
+[ ] Icons\settings.png is included in the project.
+[ ] Icons\info.png is included in the project.
+[ ] Each PNG has Build Action = Embedded Resource.
+[ ] Each PNG has Copy to Output Directory = Do not copy.
+
+Build
+-----
+[ ] PowerPoint is closed.
+[ ] No POWERPNT.EXE is running.
+[ ] Configuration is set to Release.
+[ ] Solution rebuild succeeds without errors.
+
+Functional test
+---------------
+[ ] Add-Ins tab shows Pan & Zoom v1.7.
+[ ] Pan Mode icon is visible.
+[ ] Zoom to Cursor icon is visible.
+[ ] Settings icon is visible.
+[ ] About icon is visible.
+[ ] Ctrl + Shift + MouseWheel zoom works.
+[ ] Middle mouse button + drag pan works.
+[ ] Settings can be opened and saved.
+[ ] Settings persist after PowerPoint restart.
+[ ] About shows version 1.7 and settings path.
+
+Publish package
+---------------
+[ ] Publish output contains setup.exe.
+[ ] Publish output contains PowerPointPanZoomAddIn.vsto.
+[ ] Publish output contains Application Files folder.
+[ ] README_PowerPointPanZoomAddIn_v1.7.txt is included.
+[ ] INSTALL_GUIDE_PowerPointPanZoomAddIn_v1.7.txt is included.
+[ ] TROUBLESHOOTING_PowerPointPanZoomAddIn_v1.7.txt is included.
+[ ] RELEASE_CHECKLIST_PowerPointPanZoomAddIn_v1.7.txt is included.
+[ ] LICENSE_NOTICE_MaterialIcons.txt is included.
+[ ] CHANGELOG_PowerPointPanZoomAddIn.txt is included.
+
+Archive
+-------
+[ ] Install package ZIP created as PowerPointPanZoomAddIn_v1.7_INSTALL.zip.
+[ ] Source backup created as PowerPointPanZoomAddIn_v1.7_SOURCE.

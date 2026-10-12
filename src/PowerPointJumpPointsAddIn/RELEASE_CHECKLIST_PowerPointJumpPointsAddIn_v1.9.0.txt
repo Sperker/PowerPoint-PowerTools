@@ -1,0 +1,81 @@
+PowerPoint Jump Points Add-in v1.9.0 - Release Checklist
+========================================================
+
+Source preparation
+------------------
+[ ] Work in a copied v1.9.0 source folder, not in the v1.8.0 release folder.
+[ ] AddInInfo.cs shows Version = "1.9.0".
+[ ] Ribbon label shows Jump Points v1.9.0.
+[ ] Assembly version is set to 1.9.0.0.
+[ ] File version is set to 1.9.0.0.
+[ ] Publish version is set to 1.9.0.0.
+
+Source files
+------------
+[ ] AddInInfo.cs is included.
+[ ] ThisAddIn.cs is included.
+[ ] JumpPointController.cs is included.
+[ ] JumpPointRibbon.cs is included.
+[ ] JumpPointSettings.cs is included.
+[ ] JumpPointSettingsForm.cs is included.
+[ ] JumpPointListEntry.cs is included.
+[ ] JumpPointListForm.cs is included.
+[ ] JumpPointRenameForm.cs is included.
+[ ] RibbonIconProvider.cs is included.
+
+Icon resources
+--------------
+[ ] Icons folder is inside the C# project.
+[ ] Icons\bookmark.png is included in the project.
+[ ] Icons\arrow_upward.png is included in the project.
+[ ] Icons\arrow_downward.png is included in the project.
+[ ] Icons\list.png is included in the project.
+[ ] Icons\delete.png is included in the project.
+[ ] Icons\settings.png is included in the project.
+[ ] Icons\info.png is included in the project.
+[ ] Each PNG has Build Action = Embedded Resource.
+[ ] Each PNG has Copy to Output Directory = Do not copy.
+
+Build
+-----
+[ ] PowerPoint is closed.
+[ ] No POWERPNT.EXE is running.
+[ ] Configuration is set to Release.
+[ ] Solution rebuild succeeds without errors.
+
+Functional test
+---------------
+[ ] Add-Ins tab shows Jump Points v1.9.0.
+[ ] Toggle Jump Point sets and removes jump points.
+[ ] Previous Jump Point works.
+[ ] Next Jump Point works.
+[ ] Navigator opens modeless.
+[ ] Navigator can stay on top.
+[ ] Navigator shows the compact two-row button layout.
+[ ] Previous Jump Point button in Navigator works.
+[ ] Next Jump Point button in Navigator works.
+[ ] Go To works.
+[ ] Rename stores a custom jump point name.
+[ ] Delete removes selected jump points.
+[ ] Delete All removes all jump points.
+[ ] Refresh List reloads the list.
+[ ] Settings can be opened and saved.
+[ ] Settings persist after PowerPoint restart.
+[ ] About shows version 1.9.0.
+
+Publish package
+---------------
+[ ] Publish output contains setup.exe.
+[ ] Publish output contains PowerPointJumpPointsAddIn.vsto.
+[ ] Publish output contains Application Files folder.
+[ ] README_PowerPointJumpPointsAddIn_v1.9.0.txt is included.
+[ ] INSTALL_GUIDE_PowerPointJumpPointsAddIn_v1.9.0.txt is included.
+[ ] TROUBLESHOOTING_PowerPointJumpPointsAddIn_v1.9.0.txt is included.
+[ ] RELEASE_CHECKLIST_PowerPointJumpPointsAddIn_v1.9.0.txt is included.
+[ ] LICENSE_NOTICE_MaterialIcons.txt is included.
+[ ] CHANGELOG_PowerPointJumpPointsAddIn.txt is included.
+
+Archive
+-------
+[ ] Install package ZIP created as PowerPointJumpPointsAddIn_v1.9.0_INSTALL.zip.
+[ ] Source backup created as PowerPointJumpPointsAddIn_v1.9.0_SOURCE.zip.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns">
+        <group id="grpMissingEdgeAlign" label="Missing Edge Align v1.2">
+          <toggleButton id="btnEdgeAlign" size="large" label="EdgeAlign" getImage="GetImage" onAction="OnToggleAction" getPressed="GetPressed" />
+          <box id="boxStack" boxStyle="vertical">
+            <button id="btnSettings" size="normal" label="Settings" getImage="GetImage" onAction="OnAction" />
+            <button id="btnAbout" size="normal" label="About" getImage="GetImage" onAction="OnAction" />
+          </box>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

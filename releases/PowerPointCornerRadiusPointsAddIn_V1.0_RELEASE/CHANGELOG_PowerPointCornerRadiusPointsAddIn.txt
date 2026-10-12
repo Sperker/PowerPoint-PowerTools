@@ -1,0 +1,29 @@
+CHANGELOG - PowerPoint Corner Radius Points Add-In
+==================================================
+
+Version 1.0 (October 2026)
+--------------------------
+- Initial release of the add-in.
+- Ribbon integration in the "Add-Ins" tab:
+  * "Copy Radius" button with Google Material Symbol "Rounded Corner" (rounded_corner).
+  * "Apply Radius" button with Google Material Symbol "Content Paste Go" (content_paste_go).
+  * Dynamic activation state: "Apply Radius" is automatically disabled (grayed out)
+    as long as no radius has been copied or preset in Settings.
+  * Vertical utility box with "Settings" and "About" buttons.
+  * Fully compatible with the Quick Access Toolbar (QAT) via right-click.
+- Absolute corner radius (Points / pt):
+  * Converts the relative PowerPoint adjustment value (0.0 to 0.5) into an exact absolute radius in pt.
+  * When applying, dynamically calculates the required relative adjustment for each target shape based on its dimensions.
+  * Every shape gets the exact same optical corner radius regardless of width or height.
+  * Automatically converts standard right-angled rectangles into rounded rectangles upon applying.
+- Audio & Visual Feedback:
+  * Optional confirmation sound (system sound) upon copying radius (default: enabled).
+  * Optional notification message box displaying the copied radius (default: disabled).
+  * Both options independently configurable in Settings.
+- Settings dialog (SettingsForm):
+  * Feedback options (sound / message).
+  * Manual corner radius: option to enter a custom radius in pt.
+  * "Set Radius" button to immediately store the manual value into active memory.
+  * No default radius preset initially.
+  * Clean INI persistence at %AppData%\PowerPointCornerRadiusPointsAddIn\settings.ini.
+- Automated cleanup and installer script (Bereinigen_und_Installieren.cmd).

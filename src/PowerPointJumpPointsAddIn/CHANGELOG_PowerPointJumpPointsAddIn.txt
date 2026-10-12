@@ -1,0 +1,44 @@
+## PowerPoint Jump Points Add-in - Changelog
+
+### v1.9.0 - Navigator Layout & Release Readiness Release
+This release cleans up the Jump Points Navigator layout and prepares the add-in for release packaging.
+
+Changes:
+- Updated version metadata to v1.9.0.
+- Replaced Navigator shortcut `Current Jump Point` with `Previous Jump Point`.
+- Added a dedicated `Jump Point navigation:` row with `Previous Jump Point` and `Next Jump Point`.
+- Added a dedicated `Navigator actions:` row with `Go To`, `Rename`, `Delete`, `Delete All`, and `Refresh List`.
+- Renamed Refresh button to `Refresh List`.
+- Reduced Navigator width so it can be used as a compact side window.
+- Kept `Keep this window on top` visible in the top area.
+- Added release documentation files.
+
+### v1.8.0 - Navigator Two-Row Draft
+- Added two visual rows to the Navigator.
+- Added preliminary Navigator shortcuts.
+
+### v1.7.0 - Navigator Management Release
+- Added stronger top-most behavior.
+- Added Delete All in Navigator.
+- Added Rename support using PPT_JUMPPOINT_LABEL.
+
+### v1.6.0 - Live Highlight Release
+- The open Navigator highlights the current jump point when the PowerPoint slide changes.
+
+### v1.5.0 - Navigator Confirmation Settings Release
+- Added setting to disable delete confirmations in the Navigator.
+
+### v1.4.0 - Modeless Navigator Release
+- Navigator can remain open while PowerPoint is used.
+
+### v1.3.0 - List Jump Points Release
+- Added Jump Points list dialog.
+
+### v1.2.0 - Settings Dialog Release
+- Added settings for toggle messages and sound.
+
+### v1.1.0 - Clear All Release
+- Added Clear All Jump Points and enhanced About information.
+
+### v1.0.0 - Initial Release
+- Released the first stable Jump Points implementation.
