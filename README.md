@@ -60,18 +60,19 @@ PowerPoint-PowerTools/
 ├── LICENSE                             # MIT Lizenz
 ├── README.md                           # Dokumentation & Übersicht
 ├── PowerPointPowerTools.sln            # Zentrale Projektmappe für alle 5 Add-Ins
+├── Build-Releases.ps1                  # Automatisiertes Build-, Publish- & ZIP-Skript
 ├── docs/
 │   └── ribbon-preview.png              # Screenshot des Add-Ins-Reiters
 ├── src/
 │   ├── PowerPointCornerRadiusPointsAddIn/   # Quellcode: Corner Radius v1.0
 │   ├── PowerPointJumpPointsAddIn/           # Quellcode: Jump Points v1.9/v2.0
-│   ├── PPTMissingEdgeAlignAddIn/            # Quellcode: Missing Edge Align v1.2
+│   ├── PowerPointMissingEdgeAlignAddIn/     # Quellcode: Missing Edge Align v1.2
 │   ├── PowerPointPanZoomAddIn/              # Quellcode: Pan and Cursor Zoom v1.8
 │   └── PowerPointStayOnSlidePointsAddIn/    # Quellcode: Stay on Slide v1.1
 └── releases/
     ├── PowerPointCornerRadiusPointsAddIn_V1.0_RELEASE/ (und .zip)
     ├── PowerPointJumpPointsAddIn_V2.0_RELEASE/         (und .zip)
-    ├── PPTMissingEdgeAlignAddIn_V1.2_RELEASE/          (und .zip)
+    ├── PowerPointMissingEdgeAlignAddIn_V1.2_RELEASE/   (und .zip)
     ├── PowerPointPanZoomAddIn_V1.8_RELEASE/            (und .zip)
     └── PowerPointStayOnSlidePointsAddIn_V1.1_RELEASE/  (und .zip)
 ```

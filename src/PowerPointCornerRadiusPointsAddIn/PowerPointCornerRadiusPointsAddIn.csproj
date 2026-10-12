@@ -214,4 +214,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="CopyDocsAndInstallerToPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <DocFiles Include="$(MSBuildProjectDirectory)\*.txt" />
+      <DocFiles Include="$(MSBuildProjectDirectory)\*.cmd" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DocFiles)" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" />
+  </Target>
 </Project>

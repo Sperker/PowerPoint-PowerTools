@@ -1,0 +1,65 @@
+## PowerPoint Jump Points Add-in v1.9.0 - Troubleshooting Guide
+
+### Add-in is not visible in PowerPoint
+- Close PowerPoint completely.
+- Check Task Manager and end POWERPNT.EXE if still running.
+- Reopen PowerPoint.
+- Go to File > Options > Add-ins.
+- At the bottom, select COM Add-ins and click Go.
+- Check whether PowerPointJumpPointsAddIn is listed and enabled.
+- Also check Disabled Items and re-enable the add-in if necessary.
+
+### Installation says another version is already installed
+This can happen if an older ClickOnce version was installed from a different folder.
+
+Fix:
+- Close PowerPoint.
+- Uninstall PowerPointJumpPointsAddIn from Windows Settings > Apps.
+- Run this command in cmd if needed:
+  `rundll32 dfshim.dll CleanOnlineAppCache`
+- Install v1.9.0 again from the full publish package.
+
+### Icons are missing
+The embedded PNG resources are probably not included correctly.
+
+Check in Visual Studio:
+- The project contains an Icons folder under the C# project.
+- Recommended files:
+  - Icons\bookmark.png
+  - Icons\arrow_upward.png
+  - Icons\arrow_downward.png
+  - Icons\list.png
+  - Icons\delete.png
+  - Icons\settings.png
+  - Icons\info.png
+- Each PNG file has:
+  - Build Action: Embedded Resource
+  - Copy to Output Directory: Do not copy
+
+### Navigator does not stay on top
+- Open the Jump Points Navigator.
+- Enable `Keep this window on top`.
+- If PowerPoint still covers it, close and reopen the Navigator.
+- If needed, move the Navigator beside PowerPoint or to a second monitor.
+
+### Navigator list does not look current
+- Click `Refresh List`.
+- If a slide was moved, the Navigator reloads current slide indexes from the presentation.
+- If a jump point was added or deleted outside the Navigator, `Refresh List` reloads the list from slide tags.
+
+### Rename is not visible
+- Make sure `JumpPointRenameForm.cs` is included in the Visual Studio project, not only copied into the folder.
+- In Visual Studio: Project > Add > Existing Item > select `JumpPointRenameForm.cs`.
+
+### Settings do not persist
+Check whether the registry key exists:
+`HKCU\Software\PowerPointJumpPointsAddIn`
+
+Open Settings, save once, close PowerPoint and reopen it.
+
+### Reset settings
+- Close PowerPoint.
+- Open Registry Editor.
+- Delete:
+  `HKCU\Software\PowerPointJumpPointsAddIn`
+- Reopen PowerPoint.

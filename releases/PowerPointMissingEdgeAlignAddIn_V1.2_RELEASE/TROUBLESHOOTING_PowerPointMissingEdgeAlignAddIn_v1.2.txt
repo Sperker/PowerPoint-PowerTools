@@ -1,0 +1,21 @@
+Fehlerbehebung (Troubleshooting) - PowerPoint Missing Edge Align Add-In v1.2
+=============================================================================
+
+Problem 1: Das Add-In erscheint nach der Installation nicht im Menüband.
+Lösung:
+1. Öffne PowerPoint -> Datei -> Optionen -> Add-Ins.
+2. Wähle unten bei "Verwalten: COM-Add-Ins" und klicke auf "Los...".
+3. Prüfe, ob "PowerPointMissingEdgeAlignAddIn" aufgeführt ist.
+4. Falls das Häkchen fehlt, setze es. Lies das Ladeverhalten unten ab.
+5. Bei "Nicht geladen": Führe die Datei "Bereinigen_und_Installieren.cmd" als Administrator aus.
+
+Problem 2: ClickOnce-Fehler während der Installation ("bereits eine andere Version installiert").
+Lösung:
+1. Schließe PowerPoint.
+2. Führe "Bereinigen_und_Installieren.cmd" im Release-Ordner aus.
+3. Dieses Skript löscht verwaiste VSTO-Inclusion- und SolutionMetadata-Einträge.
+
+Problem 3: Die Form richtet sich an der falschen Kante aus.
+Lösung:
+- Die Ausrichtungslogik wählt automatisch die am nächsten liegende Kante.
+- Halte die UMSCHALT-Taste gedrückt, während du die Zielform anklickst, um die Achse (horizontal/vertikal) umzuschalten.

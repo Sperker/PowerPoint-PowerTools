@@ -1,0 +1,23 @@
+Installationsanleitung - PowerPoint Missing Edge Align Add-In v1.2
+==================================================================
+
+Empfohlene Installation (Schnell & Automatisch):
+1. Schließe PowerPoint vollständig.
+2. Führe im Release-Ordner die Datei "Bereinigen_und_Installieren.cmd" aus.
+   - Schließt eventuell im Hintergrund laufende PowerPoint-Instanzen.
+   - Bereinigt eventuelle veraltete VSTO-Schlüssel.
+   - Startet setup.exe für Version 1.2 sauber.
+3. Klicke im Installationsdialog auf "Installieren".
+4. PowerPoint öffnen: Im Reiter "Add-Ins" ist "EdgeAlign" nun aktiv!
+
+ClickOnce / Veröffentlichung per MSBuild:
+msbuild PowerPointMissingEdgeAlignAddIn.csproj /target:Publish /p:Configuration=Release
+
+Manuelle Registrierung / VSTO Add-In Registrierung:
+Der VSTO-Add-In-Eintrag wird in der Windows-Registrierung unter:
+HKEY_CURRENT_USER\Software\Microsoft\Office\PowerPoint\Addins\PowerPointMissingEdgeAlignAddIn
+abgelegt mit:
+- Description: "PowerPoint Missing Edge Align Add-In"
+- FriendlyName: "PowerPointMissingEdgeAlignAddIn"
+- LoadBehavior: 3 (beim Start automatisch laden)
+- Manifest: Pfad zur .vsto-Datei

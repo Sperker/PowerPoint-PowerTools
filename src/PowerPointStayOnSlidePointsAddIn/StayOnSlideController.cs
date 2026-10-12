@@ -760,7 +760,9 @@ namespace PowerPointStayOnSlidePointsAddIn
                 + "Einstellungsdatei:" + Environment.NewLine
                 + StayOnSlideSettings.GetSettingsFilePath() + Environment.NewLine + Environment.NewLine
                 + "Hinweis:" + Environment.NewLine
-                + "Temporäre Montage-Anker werden vor dem Speichern oder Drucken automatisch entfernt.";
+                + "Temporäre Montage-Anker werden vor dem Speichern oder Drucken automatisch entfernt." + Environment.NewLine + Environment.NewLine
+                + "Open Source (MIT-Lizenz) © Sperker.Training" + Environment.NewLine
+                + "https://github.com/Sperker/PowerPoint-PowerTools";
 
             MessageBox.Show(
                 message,

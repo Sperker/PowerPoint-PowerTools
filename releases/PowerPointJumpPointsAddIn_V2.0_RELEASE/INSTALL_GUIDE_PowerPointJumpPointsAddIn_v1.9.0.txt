@@ -1,0 +1,52 @@
+## PowerPoint Jump Points Add-in v1.9.0 - Installation Guide
+
+### Target audience
+This guide is intended for users who install the PowerPoint Jump Points Add-in from a ClickOnce publish package.
+
+### Prerequisites
+The target computer should already have:
+- Windows
+- Microsoft PowerPoint Desktop
+- .NET Framework 4.x / 4.8
+- Visual Studio Tools for Office Runtime
+
+### Installation without admin rights
+- Close PowerPoint completely.
+- Copy the full installation ZIP to a local folder.
+- If Windows shows the file as blocked:
+  - Right-click the ZIP file.
+  - Open Properties.
+  - Select Unblock / Zulassen if visible.
+- Extract the full ZIP package.
+- Run `PowerPointJumpPointsAddIn.vsto`.
+- If that does not start the installer, run `setup.exe`.
+- Confirm the installation prompts.
+- Open PowerPoint.
+- Go to the Add-Ins tab.
+- Verify that `Jump Points v1.9.0` is visible.
+
+### Important package rule
+Do not distribute `setup.exe` alone. Always distribute the complete publish folder, including:
+- setup.exe
+- PowerPointJumpPointsAddIn.vsto
+- Application Files\
+
+### Update installation
+If a previous ClickOnce version was installed from a different folder or location, uninstall the previous version first:
+- Close PowerPoint.
+- Windows Settings > Apps > Installed Apps.
+- Search for PowerPointJumpPointsAddIn.
+- Uninstall it.
+- Install v1.9.0 from the new package.
+
+### Uninstall
+- Close PowerPoint.
+- Windows Settings > Apps > Installed Apps.
+- Search for PowerPointJumpPointsAddIn.
+- Select Uninstall.
+
+### Settings after uninstall
+Per-user settings may remain under:
+`HKCU\Software\PowerPointJumpPointsAddIn`
+
+Delete this registry key only if you want to reset all user-specific settings.

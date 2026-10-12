@@ -1,0 +1,27 @@
+CHANGELOG - PowerPoint Missing Edge Align Add-In
+=================================================
+
+Version 1.2 (Oktober 2026)
+--------------------------
+- Einheitliche Ribbon-Integration im Tab "Add-Ins":
+  * Großer Action-Button "EdgeAlign".
+  * Vertikale Utility-Box mit "Settings" und "About".
+  * Normierte 30×30 px Google Material Symbols Outlined Icons.
+- Mathematische Kanten-an-Kanten-Ausrichtung (Edge-to-Edge Alignment):
+  * Quelle-Objekt auswählen -> "EdgeAlign" anklicken (oder QAT-Shortcut nutzen) -> Ziel-Objekt anklicken.
+  * Akustisches Feedback bei Aktivierung des Ausrichtungs-Modus.
+- Modifikatoren für maximale Flexibilität:
+  * Strg-Taste gedrückt halten: Wendet den in den Einstellungen hinterlegten Kantenabstand (Gap in pt) an.
+  * Umschalt-Taste gedrückt halten: Schaltet die automatische Ausrichtungsachse (horizontal / vertikal) um.
+- Konfigurierbarer Einstellungsdialog (Settings) für Standard-Abstände.
+- Open Source unter MIT-Lizenz mit Link zum GitHub-Repository im About-Dialog.
+- Bereinigungs- und Installations-Tool (Bereinigen_und_Installieren.cmd).
+
+Version 1.1 (Juni 2026)
+-----------------------
+- Optimierung der Kanten-Distanzberechnung bei rotierten und skalierten Formen.
+- Verbesserte Mehrfachauswahl-Unterstützung.
+
+Version 1.0 (Juni 2026)
+-----------------------
+- Erstveröffentlichung des Kanten-Ausrichtungs-Add-Ins für PowerPoint Desktop.

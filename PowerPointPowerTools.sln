@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointCornerRadiusPoint
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointJumpPointsAddIn", "src\PowerPointJumpPointsAddIn\PowerPointJumpPointsAddIn.csproj", "{5675CC12-4A6A-4BD7-9BA8-D85C3757B657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPTMissingEdgeAlignAddIn", "src\PPTMissingEdgeAlignAddIn\PPTMissingEdgeAlignAddIn.csproj", "{C1EEC91B-E04D-46AD-9317-BE4B8EC8085F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointMissingEdgeAlignAddIn", "src\PowerPointMissingEdgeAlignAddIn\PowerPointMissingEdgeAlignAddIn.csproj", "{C1EEC91B-E04D-46AD-9317-BE4B8EC8085F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerPointPanZoomAddIn", "src\PowerPointPanZoomAddIn\PowerPointPanZoomAddIn.csproj", "{D7987400-F925-4698-924B-322EAA403947}"
 EndProject

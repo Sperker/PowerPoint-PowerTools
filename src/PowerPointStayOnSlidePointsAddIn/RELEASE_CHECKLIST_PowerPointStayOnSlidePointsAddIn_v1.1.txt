@@ -1,0 +1,36 @@
+PowerPoint Stay On Slide Points Add-In v1.1 - Release Checklist
+================================================================
+
+Source preparation
+------------------
+[x] Source-Ordner eingerichtet: PowerPointStayOnSlidePointsAddIn_V1.1_SOURCE.
+[x] AddInInfo.cs enthält Version = "1.1", Ribbon-Labels "Stay on Slide v1.1".
+[x] AssemblyInfo.cs: Version 1.1.0.0.
+[x] Projektdatei und Solution sauber aufgesetzt.
+
+Icon-Ressourcen
+---------------
+[x] Icons\stay_on_slide.png als Embedded Resource eingebunden.
+[x] Icons\frame_inspect.png (Google Material Symbol) als Embedded Resource eingebunden.
+[x] Icons\settings.png als Embedded Resource eingebunden.
+[x] Icons\info.png als Embedded Resource eingebunden.
+[x] Programmatischer Fallback-Icon-Generator in RibbonIconProvider implementiert.
+
+Build & Publish
+---------------
+[x] Release Build erfolgreich (0 Fehler, 0 Warnungen).
+[x] Release Publish erfolgreich (0 Fehler, 0 Warnungen).
+[x] Bereinigen_und_Installieren.cmd eingerichtet.
+
+Funktionen
+----------
+[x] Stay on Slide Toggle im Menüband "Add-Ins" mit echtem Hard-Stop beim Scrollen.
+[x] Kein Springen, kein Zucken ("Zupfen"), keine Schleifen oder Beep-Töne an Folienrändern.
+[x] Markierungen von Formen und Textfeldern bleiben nach Scrollen und Grenzkorrekturen erhalten.
+[x] Viewport wird bei Korrekturen nicht auf Folienanfang zurückgeworfen (ScrollIntoView).
+[x] Freies, unbeeinflusstes Navigieren und Scrollen in der linken Miniatur-Sidebar.
+[x] Blockieren von Tastatursprüngen (BildAuf/BildAb) auf der Folie (in Settings abschaltbar).
+[x] Automatischer Montagebereich (Virtual Pasteboard, Standard 800 pt).
+[x] Saubere Bereinigung aller temporären Anker vor Speichern, Drucken oder Schließen.
+[x] SettingsForm zum Anpassen von Puffergröße, Tastatursperre und Scroll-Schrittweite.
+[x] About-Dialog mit Versions-, Einstellungs- und Pfad-Informationen.

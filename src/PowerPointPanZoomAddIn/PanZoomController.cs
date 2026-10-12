@@ -121,7 +121,9 @@ namespace PowerPointPanZoomAddIn
                 + "Notes" + Environment.NewLine
                 + "- PowerPoint Desktop on Windows only." + Environment.NewLine
                 + "- Temporary invisible zoom anchors are cleaned automatically." + Environment.NewLine
-                + "- Installed per user when deployed via ClickOnce.";
+                + "- Installed per user when deployed via ClickOnce." + Environment.NewLine + Environment.NewLine
+                + "Open Source (MIT-Lizenz) © Sperker.Training" + Environment.NewLine
+                + "https://github.com/Sperker/PowerPoint-PowerTools";
 
             MessageBox.Show(
                 message,

@@ -1,0 +1,30 @@
+PowerPoint Missing Edge Align Add-In v1.2 - Release Checklist
+==============================================================
+
+Source preparation
+------------------
+[x] Source-Ordner eingerichtet: PowerPointMissingEdgeAlignAddIn.
+[x] AssemblyInfo.cs: Version 1.2.0.0.
+[x] Projektdatei und Solution sauber aufgesetzt.
+
+Icon-Ressourcen
+---------------
+[x] Icons\auto_awesome_mosaic.png (Google Material Symbol) als Embedded Resource eingebunden (normierte 30×30 px).
+[x] Icons\settings.png als Embedded Resource eingebunden.
+[x] Icons\info.png als Embedded Resource eingebunden.
+
+Build & Publish
+---------------
+[x] Release Build erfolgreich (0 Fehler, 0 Warnungen).
+[x] Release Publish erfolgreich (0 Fehler, 0 Warnungen).
+[x] Bereinigen_und_Installieren.cmd eingerichtet.
+
+Funktionen
+----------
+[x] EdgeAlign Action-Button im Menüband "Add-Ins".
+[x] Akustisches Feedback bei Aktivierung des Ausrichtungs-Modus.
+[x] Mathematisch exakte Kanten-Ausrichtung zweier Formen.
+[x] Modifikator Strg: Berücksichtigung des konfigurierten Kantenabstands.
+[x] Modifikator Umschalt: Erzwingen der alternativen Ausrichtungsachse.
+[x] SettingsForm zum Anpassen des Standardabstands (Gap).
+[x] About-Dialog mit Lizenz, Versions- und GitHub-Informationen.
