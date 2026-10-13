@@ -737,7 +737,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Einstellungen fehlgeschlagen",
+                    "Settings failed",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -747,21 +747,21 @@ namespace PowerPointStayOnSlidePointsAddIn
         public void ShowAbout()
         {
             string message = AddInInfo.ProductName + " v" + AddInInfo.Version + Environment.NewLine + Environment.NewLine
-                + "Funktionen & Verhalten:" + Environment.NewLine
-                + "- Bleibt im Bearbeitungsmodus fest auf der aktuellen Folie fixiert." + Environment.NewLine
-                + "- Kein versehentlicher Folienwechsel durch Mausrad oder Tastatur auf der Folie." + Environment.NewLine
-                + "- Folienwechsel erfolgt komfortabel über die linke Miniatur-Sidebar." + Environment.NewLine
-                + "- Automatischer Montagebereich (Pasteboard) über den oberen und unteren Rand hinaus." + Environment.NewLine + Environment.NewLine
-                + "Aktuelle Einstellungen:" + Environment.NewLine
-                + "- Modus aktiv: " + (_settings.StayOnSlideEnabled ? "Ja" : "Nein") + Environment.NewLine
-                + "- Montagebereich erweitert: " + (_settings.EnableVirtualCanvas ? "Ja (" + _settings.CanvasPaddingPoints + " pt)" : "Nein") + Environment.NewLine
-                + "- Tastaturnavigation sperren: " + (_settings.BlockKeyboardSlideNavigation ? "Ja" : "Nein") + Environment.NewLine
-                + "- Mausrad-Schrittweite: " + _settings.WheelScrollStepLines + " Zeilen" + Environment.NewLine + Environment.NewLine
-                + "Einstellungsdatei:" + Environment.NewLine
+                + "Features & Behavior:" + Environment.NewLine
+                + "- Locks the active view firmly onto the current slide in edit mode." + Environment.NewLine
+                + "- Prevents accidental slide changes via mouse wheel or keyboard on the slide canvas." + Environment.NewLine
+                + "- Intentional slide switching remains seamlessly available in the left thumbnail sidebar." + Environment.NewLine
+                + "- Automatic virtual pasteboard above and below the slide boundaries." + Environment.NewLine + Environment.NewLine
+                + "Current Settings:" + Environment.NewLine
+                + "- Mode active: " + (_settings.StayOnSlideEnabled ? "Yes" : "No") + Environment.NewLine
+                + "- Extended pasteboard: " + (_settings.EnableVirtualCanvas ? "Enabled (" + _settings.CanvasPaddingPoints + " pt)" : "Disabled") + Environment.NewLine
+                + "- Block keyboard slide navigation: " + (_settings.BlockKeyboardSlideNavigation ? "Enabled" : "Disabled") + Environment.NewLine
+                + "- Mouse wheel scroll step: " + _settings.WheelScrollStepLines + " lines" + Environment.NewLine + Environment.NewLine
+                + "Settings file:" + Environment.NewLine
                 + StayOnSlideSettings.GetSettingsFilePath() + Environment.NewLine + Environment.NewLine
-                + "Hinweis:" + Environment.NewLine
-                + "Temporäre Montage-Anker werden vor dem Speichern oder Drucken automatisch entfernt." + Environment.NewLine + Environment.NewLine
-                + "Open Source (MIT-Lizenz) © Sperker.Training" + Environment.NewLine
+                + "Notes:" + Environment.NewLine
+                + "- Temporary pasteboard anchors are automatically removed before saving, printing, or closing." + Environment.NewLine + Environment.NewLine
+                + "Open Source (MIT License) © Sperker.Training" + Environment.NewLine
                 + "https://github.com/Sperker/PowerPoint-PowerTools";
 
             MessageBox.Show(

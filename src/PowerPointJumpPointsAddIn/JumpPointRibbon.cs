@@ -304,7 +304,7 @@ namespace PowerPointJumpPointsAddIn
                 $"Navigator confirmations: {(_controller.IsNavigatorConfirmationEnabled() ? "Enabled" : "Disabled")}\n\n" +
                 "Define invisible jump points on PowerPoint slides and quickly navigate between them.\n\n" +
                 "Tip: Right-click the Jump Points command and add it to the Quick Access Toolbar for fast Alt-key access.\n\n" +
-                "Open Source (MIT-Lizenz) © Sperker.Training\n" +
+                "Open Source (MIT License) © Sperker.Training\n" +
                 "https://github.com/Sperker/PowerPoint-PowerTools",
                 AddInInfo.ProductName,
                 MessageBoxButtons.OK,

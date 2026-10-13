@@ -333,7 +333,7 @@ namespace PowerPointCornerRadiusPointsAddIn
                 + "- Notification on copy: " + (_settings.ShowMessageOnCopy ? "Enabled" : "Disabled") + Environment.NewLine + Environment.NewLine
                 + "Settings file:" + Environment.NewLine
                 + CornerRadiusSettings.GetSettingsFilePath() + Environment.NewLine + Environment.NewLine
-                + "Open Source (MIT-Lizenz) © Sperker.Training" + Environment.NewLine
+                + "Open Source (MIT License) © Sperker.Training" + Environment.NewLine
                 + "https://github.com/Sperker/PowerPoint-PowerTools";
 
             MessageBox.Show(

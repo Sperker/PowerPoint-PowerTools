@@ -16,10 +16,10 @@ namespace PowerPointStayOnSlidePointsAddIn
     <tabs>
       <tab idMso='TabAddIns'>
         <group id='grpStayOnSlide' label='" + AddInInfo.RibbonGroupLabelXml + @"'>
-          <toggleButton id='tglStayOnSlide' label='Stay on Slide' size='large' getImage='GetRibbonImage' screentip='Stay on Slide Modus' supertip='Aktiviert oder deaktiviert den Stay on Slide Modus. Wenn aktiv, kann auf der Folie nicht versehentlich zur nächsten Folie gewechselt werden. Der Folienwechsel erfolgt über die linke Miniatur-Sidebar.' onAction='OnToggleStayOnSlide' getPressed='GetStayOnSlidePressed'/>
+          <toggleButton id='tglStayOnSlide' label='Stay on Slide' size='large' getImage='GetRibbonImage' screentip='Stay on Slide Mode' supertip='Enables or disables Stay on Slide mode. When active, scrolling on the slide canvas will not accidentally switch to the next or previous slide. Slide switching remains available via the left thumbnail sidebar.' onAction='OnToggleStayOnSlide' getPressed='GetStayOnSlidePressed'/>
           <box id='boxStayOnSlideUtilities' boxStyle='vertical'>
-            <button id='btnSettings' label='Settings' getImage='GetRibbonImage' screentip='Stay on Slide Einstellungen' supertip='Montagebereich-Puffergröße und Tastaturnavigation anpassen.' onAction='OnSettings'/>
-            <button id='btnAbout' label='About' getImage='GetRibbonImage' screentip='Über Stay on Slide' supertip='Informationen zur Version, Tastenkombinationen und Einstellungen anzeigen.' onAction='OnAbout'/>
+            <button id='btnSettings' label='Settings' getImage='GetRibbonImage' screentip='Stay on Slide Settings' supertip='Configure pasteboard padding size and keyboard navigation lock.' onAction='OnSettings'/>
+            <button id='btnAbout' label='About' getImage='GetRibbonImage' screentip='About Stay on Slide' supertip='Show version details, features, current settings, and file paths.' onAction='OnAbout'/>
           </box>
         </group>
       </tab>

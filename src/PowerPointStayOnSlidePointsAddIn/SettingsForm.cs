@@ -20,7 +20,7 @@ namespace PowerPointStayOnSlidePointsAddIn
         {
             Settings = settings ?? new StayOnSlideSettings();
 
-            Text = AddInInfo.ProductName + " Einstellungen";
+            Text = AddInInfo.ProductName + " Settings";
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -37,9 +37,9 @@ namespace PowerPointStayOnSlidePointsAddIn
             lblTitle.Height = 24;
             Controls.Add(lblTitle);
 
-            // GroupBox 1: Montagebereich
+            // GroupBox 1: Pasteboard
             GroupBox grpCanvas = new GroupBox();
-            grpCanvas.Text = "Montagebereich (Pasteboard) & Folienränder";
+            grpCanvas.Text = "Pasteboard (Virtual Canvas) & Slide Boundaries";
             grpCanvas.Left = 16;
             grpCanvas.Top = 45;
             grpCanvas.Width = 530;
@@ -47,7 +47,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             Controls.Add(grpCanvas);
 
             _chkEnableVirtualCanvas = new CheckBox();
-            _chkEnableVirtualCanvas.Text = "Erweiterten Montagebereich aktivieren (über Folienrand hinaus arbeiten)";
+            _chkEnableVirtualCanvas.Text = "Enable extended pasteboard (work beyond slide boundaries)";
             _chkEnableVirtualCanvas.Left = 14;
             _chkEnableVirtualCanvas.Top = 24;
             _chkEnableVirtualCanvas.Width = 500;
@@ -55,7 +55,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             grpCanvas.Controls.Add(_chkEnableVirtualCanvas);
 
             Label lblPadding = new Label();
-            lblPadding.Text = "Puffergröße oben & unten (Points, 200 - 5000):";
+            lblPadding.Text = "Top & bottom padding size (points, 200 - 5000):";
             lblPadding.Left = 14;
             lblPadding.Top = 55;
             lblPadding.Width = 350;
@@ -72,7 +72,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             grpCanvas.Controls.Add(_numCanvasPadding);
 
             Label lblCanvasHint = new Label();
-            lblCanvasHint.Text = "Hinweis: Erlaubt freies Scrollen und Platzieren von Objekten weit über die Folienkanten hinaus. Hilfs-Objekte zum 'Verschieben' des Canvas sind nicht mehr nötig.";
+            lblCanvasHint.Text = "Note: Allows free scrolling and placing objects far beyond the top and bottom slide edges without needing manual helper shapes.";
             lblCanvasHint.ForeColor = Color.DimGray;
             lblCanvasHint.Left = 14;
             lblCanvasHint.Top = 85;
@@ -82,7 +82,7 @@ namespace PowerPointStayOnSlidePointsAddIn
 
             // GroupBox 2: Navigation
             GroupBox grpNav = new GroupBox();
-            grpNav.Text = "Navigation & Tastatursteuerung";
+            grpNav.Text = "Navigation & Keyboard Control";
             grpNav.Left = 16;
             grpNav.Top = 195;
             grpNav.Width = 530;
@@ -90,7 +90,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             Controls.Add(grpNav);
 
             _chkBlockKeyboard = new CheckBox();
-            _chkBlockKeyboard.Text = "Folienwechsel über Tastatur (BildAuf / BildAb) auf der Folie blockieren";
+            _chkBlockKeyboard.Text = "Block slide switching via keyboard (PageUp / PageDown) on slide";
             _chkBlockKeyboard.Left = 14;
             _chkBlockKeyboard.Top = 24;
             _chkBlockKeyboard.Width = 500;
@@ -98,7 +98,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             grpNav.Controls.Add(_chkBlockKeyboard);
 
             Label lblWheelLines = new Label();
-            lblWheelLines.Text = "Mausrad-Schrittweite beim Folien-Scrollen (Zeilen):";
+            lblWheelLines.Text = "Mouse wheel scroll step on slide (lines):";
             lblWheelLines.Left = 14;
             lblWheelLines.Top = 55;
             lblWheelLines.Width = 350;
@@ -114,7 +114,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             grpNav.Controls.Add(_numWheelLines);
 
             Label lblNavHint = new Label();
-            lblNavHint.Text = "Tipp: Der Folienwechsel erfolgt bei aktivem Modus gezielt über die linke Miniatur-Sidebar (Slides Sidebar).";
+            lblNavHint.Text = "Tip: When Stay on Slide is active, switch slides intentionally using the left thumbnail sidebar.";
             lblNavHint.ForeColor = Color.DimGray;
             lblNavHint.Left = 14;
             lblNavHint.Top = 85;
@@ -124,7 +124,7 @@ namespace PowerPointStayOnSlidePointsAddIn
 
             // Bottom Buttons
             _btnReset = new Button();
-            _btnReset.Text = "Standard";
+            _btnReset.Text = "Reset";
             _btnReset.Left = 16;
             _btnReset.Top = 355;
             _btnReset.Width = 100;
@@ -133,7 +133,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             Controls.Add(_btnReset);
 
             _btnSave = new Button();
-            _btnSave.Text = "Speichern";
+            _btnSave.Text = "Save";
             _btnSave.Left = 336;
             _btnSave.Top = 355;
             _btnSave.Width = 100;
@@ -143,7 +143,7 @@ namespace PowerPointStayOnSlidePointsAddIn
             Controls.Add(_btnSave);
 
             _btnCancel = new Button();
-            _btnCancel.Text = "Abbrechen";
+            _btnCancel.Text = "Cancel";
             _btnCancel.Left = 446;
             _btnCancel.Top = 355;
             _btnCancel.Width = 100;

@@ -49,7 +49,7 @@ namespace PPTMissingEdgeAlignAddIn
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(183, 13);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "PPTMissingEdgeAlignAddIn v.1";
+            this.lblTitle.Text = "PowerPointMissingEdgeAlignAddIn v1.2";
             // 
             // grpAlignment
             // 

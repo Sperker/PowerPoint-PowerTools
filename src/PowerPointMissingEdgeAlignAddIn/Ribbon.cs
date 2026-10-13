@@ -113,7 +113,7 @@ namespace PPTMissingEdgeAlignAddIn
                         + "Pro-Tips (Modifiers):\n"
                         + "- Hold the CTRL key when clicking the target shape to apply the gap defined in Settings.\n"
                         + "- Hold the SHIFT key when clicking the target shape to override the automatic alignment axis (vertical vs. horizontal) and force the opposite direction.\n\n"
-                        + "Open Source (MIT-Lizenz) © Sperker.Training\n"
+                        + "Open Source (MIT License) © Sperker.Training\n"
                         + "https://github.com/Sperker/PowerPoint-PowerTools";
 
                     System.Windows.Forms.MessageBox.Show(
