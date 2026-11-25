@@ -1,6 +1,8 @@
 # PowerPoint PowerTools 🚀
 > A curated suite of modern VSTO add-ins for Microsoft PowerPoint Desktop designed to improve productivity, layout precision, slide navigation, and canvas control.
 
+![PowerPoint PowerTools Ribbon](docs/ribbon-preview.png)
+
 ---
 
 ## 📦 Overview of the 5 PowerTools
@@ -59,6 +61,8 @@ PowerPoint-PowerTools/
 ├── README.md                           # Documentation & overview
 ├── PowerPointPowerTools.sln            # Central solution for all 5 add-ins
 ├── Build-Releases.ps1                  # Automated build, publish & ZIP script
+├── docs/
+│   └── ribbon-preview.png              # Ribbon preview screenshot
 ├── src/
 │   ├── PowerPointCornerRadiusPointsAddIn/   # Source: Corner Radius v1.0
 │   ├── PowerPointJumpPointsAddIn/           # Source: Jump Points v1.9.0
