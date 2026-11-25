@@ -203,6 +203,65 @@ namespace PowerPointCornerRadiusPointsAddIn
             }
         }
 
+        private static bool IsSupportedCornerRadiusShape(PowerPoint.Shape shape)
+        {
+            if (shape == null)
+                return false;
+
+            switch (shape.Type)
+            {
+                case MsoShapeType.msoAutoShape:
+                case MsoShapeType.msoPicture:
+                case MsoShapeType.msoLinkedPicture:
+                case MsoShapeType.msoTextBox:
+                    return true;
+
+                case MsoShapeType.msoPlaceholder:
+                    try
+                    {
+                        var contained = shape.PlaceholderFormat.ContainedType;
+                        return contained == MsoShapeType.msoAutoShape
+                            || contained == MsoShapeType.msoPicture
+                            || contained == MsoShapeType.msoLinkedPicture
+                            || contained == MsoShapeType.msoTextBox;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+                default:
+                    return false;
+            }
+        }
+
+        private static bool IsPictureOrPicturePlaceholder(PowerPoint.Shape shape)
+        {
+            if (shape.Type == MsoShapeType.msoPicture || shape.Type == MsoShapeType.msoLinkedPicture)
+                return true;
+
+            if (shape.Type == MsoShapeType.msoPlaceholder)
+            {
+                try
+                {
+                    var contained = shape.PlaceholderFormat.ContainedType;
+                    return contained == MsoShapeType.msoPicture || contained == MsoShapeType.msoLinkedPicture;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool IsTwoPairRoundedRectangle(MsoAutoShapeType autoShapeType)
+        {
+            return autoShapeType == MsoAutoShapeType.msoShapeRound2SameRectangle
+                || autoShapeType == MsoAutoShapeType.msoShapeRound2DiagRectangle;
+        }
+
         private bool TryGetCornerRadius(PowerPoint.Shape shape, out float radius)
         {
             radius = 0f;
@@ -210,13 +269,18 @@ namespace PowerPointCornerRadiusPointsAddIn
 
             try
             {
-                // Group check
+                // Group check: use first child item that exposes a corner radius
                 if (shape.Type == MsoShapeType.msoGroup && shape.GroupItems != null && shape.GroupItems.Count > 0)
                 {
-                    return TryGetCornerRadius(shape.GroupItems[1], out radius);
+                    for (int i = 1; i <= shape.GroupItems.Count; i++)
+                    {
+                        if (TryGetCornerRadius(shape.GroupItems[i], out radius))
+                            return true;
+                    }
+                    return false;
                 }
 
-                if (shape.Type != MsoShapeType.msoAutoShape)
+                if (!IsSupportedCornerRadiusShape(shape))
                     return false;
 
                 if (shape.Adjustments == null || shape.Adjustments.Count == 0)
@@ -226,8 +290,14 @@ namespace PowerPointCornerRadiusPointsAddIn
                 if (minDim <= 0.01f)
                     return false;
 
-                // For rounded rectangle shapes, adjustment 1 controls corner radius
                 float adj = shape.Adjustments[1];
+                if (adj <= 0f && IsTwoPairRoundedRectangle(shape.AutoShapeType) && shape.Adjustments.Count >= 2)
+                {
+                    float adj2 = shape.Adjustments[2];
+                    if (adj2 > 0f)
+                        adj = adj2;
+                }
+
                 radius = adj * minDim;
                 return radius >= 0;
             }
@@ -255,8 +325,12 @@ namespace PowerPointCornerRadiusPointsAddIn
                     return anyUpdated;
                 }
 
-                // If user selected a standard rectangle, automatically convert to rounded rectangle!
-                if (shape.AutoShapeType == MsoAutoShapeType.msoShapeRectangle)
+                if (!IsSupportedCornerRadiusShape(shape))
+                    return false;
+
+                // Automatically convert standard rectangles (and unrounded pictures/picture placeholders) to rounded rectangles
+                if (shape.AutoShapeType == MsoAutoShapeType.msoShapeRectangle
+                    || (shape.AutoShapeType == MsoAutoShapeType.msoShapeNotPrimitive && IsPictureOrPicturePlaceholder(shape)))
                 {
                     shape.AutoShapeType = MsoAutoShapeType.msoShapeRoundedRectangle;
                 }
@@ -271,6 +345,23 @@ namespace PowerPointCornerRadiusPointsAddIn
                 // Calculate required relative adjustment: adj = radius / minDim
                 float adj = targetRadiusPoints / minDim;
                 adj = Math.Max(0.0f, Math.Min(0.5f, adj));
+
+                if (IsTwoPairRoundedRectangle(shape.AutoShapeType) && shape.Adjustments.Count >= 2)
+                {
+                    float current1 = shape.Adjustments[1];
+                    float current2 = shape.Adjustments[2];
+                    if (current1 <= 0f && current2 > 0f)
+                    {
+                        shape.Adjustments[2] = adj;
+                        return true;
+                    }
+                    if (current1 > 0f && current2 > 0f)
+                    {
+                        shape.Adjustments[1] = adj;
+                        shape.Adjustments[2] = adj;
+                        return true;
+                    }
+                }
 
                 shape.Adjustments[1] = adj;
                 return true;

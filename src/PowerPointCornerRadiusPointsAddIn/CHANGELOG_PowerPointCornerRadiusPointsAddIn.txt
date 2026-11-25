@@ -1,8 +1,11 @@
 CHANGELOG - PowerPoint Corner Radius Points Add-In
 ==================================================
 
-Version 1.0 (October 2026)
---------------------------
+Version 1.0 (October 2026 / Updated November 2026)
+--------------------------------------------------
+- Added support for pictures (`msoPicture`, `msoLinkedPicture`), text boxes (`msoTextBox`),
+  and picture/shape placeholders (`msoPlaceholder`), including two-pair rounded shapes
+  (`msoShapeRound2SameRectangle`, `msoShapeRound2DiagRectangle`) and multi-item groups.
 - Initial release of the add-in.
 - Ribbon integration in the "Add-Ins" tab:
   * "Copy Radius" button with Google Material Symbol "Rounded Corner" (rounded_corner).
