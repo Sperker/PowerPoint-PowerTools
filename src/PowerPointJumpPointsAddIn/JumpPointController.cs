@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
@@ -10,6 +11,9 @@ namespace PowerPointJumpPointsAddIn
 {
     public sealed class JumpPointController
     {
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
         private PowerPoint.Application _application;
         private readonly JumpPointSettings _settings;
         private int _lastKnownSlideId = -1;
@@ -705,6 +709,45 @@ namespace PowerPointJumpPointsAddIn
             catch
             {
                 ShowMessage($"Could not navigate to slide {slide.SlideIndex}.");
+            }
+        }
+
+        public void ReturnFocusToPowerPoint()
+        {
+            try
+            {
+                if (_application == null)
+                {
+                    return;
+                }
+
+                IntPtr targetHwnd = IntPtr.Zero;
+                PowerPoint.DocumentWindow window = null;
+                try { window = _application.ActiveWindow; } catch { }
+
+                if (window != null)
+                {
+                    try { targetHwnd = new IntPtr(window.HWND); } catch { }
+                }
+
+                if (targetHwnd == IntPtr.Zero)
+                {
+                    try { targetHwnd = new IntPtr(_application.HWND); } catch { }
+                }
+
+                if (targetHwnd != IntPtr.Zero)
+                {
+                    SetForegroundWindow(targetHwnd);
+                }
+
+                if (window != null)
+                {
+                    try { window.Activate(); } catch { }
+                }
+            }
+            catch
+            {
+                // Ignore focus handoff issues.
             }
         }
 

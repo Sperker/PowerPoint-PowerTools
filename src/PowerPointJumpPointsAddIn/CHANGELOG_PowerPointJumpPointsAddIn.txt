@@ -11,6 +11,7 @@ Changes:
 - Renamed Refresh button to `Refresh List`.
 - Reduced Navigator width so it can be used as a compact side window.
 - Kept `Keep this window on top` visible in the top area.
+- Fixed Navigator focus and Z-order behavior so selecting objects on a slide no longer brings the Navigator to the foreground or steals keyboard focus, and navigation actions (`Go To`, `Previous Jump Point`, `Next Jump Point`) return focus to PowerPoint.
 - Added release documentation files.
 
 ### v1.8.0 - Navigator Two-Row Draft

@@ -9,7 +9,6 @@ namespace PowerPointJumpPointsAddIn
     public sealed class JumpPointListForm : Form
     {
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
-        private static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         private const uint SWP_NOSIZE = 0x0001;
         private const uint SWP_NOMOVE = 0x0002;
         private const uint SWP_NOACTIVATE = 0x0010;
@@ -204,7 +203,6 @@ namespace PowerPointJumpPointsAddIn
             Controls.Add(_closeButton);
 
             Load += JumpPointListForm_Load;
-            Activated += JumpPointListForm_Activated;
             Shown += JumpPointListForm_Shown;
         }
 
@@ -218,83 +216,109 @@ namespace PowerPointJumpPointsAddIn
             ApplyTopMostState();
         }
 
-        private void JumpPointListForm_Activated(object sender, EventArgs e)
-        {
-            ApplyTopMostState();
-        }
-
         public void RefreshJumpPointList()
         {
             int? previouslySelectedSlideId = GetFirstSelectedSlideId();
-            _listView.Items.Clear();
-
-            List<JumpPointListEntry> entries;
-
+            bool preserveItemFocus = _listView.Focused;
+            _listView.BeginUpdate();
             try
             {
-                entries = _controller.GetJumpPointListEntries();
-            }
-            catch
-            {
-                entries = new List<JumpPointListEntry>();
-            }
+                _listView.Items.Clear();
 
-            foreach (JumpPointListEntry entry in entries)
-            {
-                ListViewItem item = new ListViewItem(entry.SlideIndex.ToString());
-                item.SubItems.Add(entry.SlideId.ToString());
-                item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Label) ? "-" : entry.Label);
-                item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Title) ? "(no title/text found)" : entry.Title);
-                item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Created) ? "-" : entry.Created);
-                item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Version) ? "-" : entry.Version);
-                item.Tag = entry.SlideId;
+                List<JumpPointListEntry> entries;
 
-                if (previouslySelectedSlideId.HasValue && previouslySelectedSlideId.Value == entry.SlideId)
+                try
                 {
-                    item.Selected = true;
-                    item.Focused = true;
+                    entries = _controller.GetJumpPointListEntries();
+                }
+                catch
+                {
+                    entries = new List<JumpPointListEntry>();
                 }
 
-                _listView.Items.Add(item);
+                foreach (JumpPointListEntry entry in entries)
+                {
+                    ListViewItem item = new ListViewItem(entry.SlideIndex.ToString());
+                    item.SubItems.Add(entry.SlideId.ToString());
+                    item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Label) ? "-" : entry.Label);
+                    item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Title) ? "(no title/text found)" : entry.Title);
+                    item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Created) ? "-" : entry.Created);
+                    item.SubItems.Add(string.IsNullOrWhiteSpace(entry.Version) ? "-" : entry.Version);
+                    item.Tag = entry.SlideId;
+
+                    if (previouslySelectedSlideId.HasValue && previouslySelectedSlideId.Value == entry.SlideId)
+                    {
+                        item.Selected = true;
+                        if (preserveItemFocus)
+                        {
+                            item.Focused = true;
+                        }
+                    }
+
+                    _listView.Items.Add(item);
+                }
+
+                _summaryLabel.Text = entries.Count == 1
+                    ? "1 jump point found."
+                    : entries.Count + " jump points found.";
+
+                if (_listView.SelectedItems.Count > 0)
+                {
+                    _listView.SelectedItems[0].EnsureVisible();
+                }
             }
-
-            _summaryLabel.Text = entries.Count == 1
-                ? "1 jump point found."
-                : entries.Count + " jump points found.";
-
-            if (_listView.SelectedItems.Count > 0)
+            finally
             {
-                _listView.SelectedItems[0].EnsureVisible();
+                _listView.EndUpdate();
             }
-
-            ApplyTopMostState();
         }
 
         public void HighlightSlideById(int slideId)
         {
             try
             {
+                if (_listView.SelectedItems.Count == 1
+                    && _listView.SelectedItems[0].Tag is int
+                    && (int)_listView.SelectedItems[0].Tag == slideId)
+                {
+                    return;
+                }
+
+                bool preserveItemFocus = _listView.Focused;
                 bool found = false;
 
-                foreach (ListViewItem item in _listView.Items)
+                _listView.BeginUpdate();
+                try
                 {
-                    bool isCurrentSlide = item.Tag is int && (int)item.Tag == slideId;
-                    item.Selected = isCurrentSlide;
-                    item.Focused = isCurrentSlide;
-
-                    if (isCurrentSlide)
+                    foreach (ListViewItem item in _listView.Items)
                     {
-                        item.EnsureVisible();
-                        found = true;
+                        bool isCurrentSlide = item.Tag is int && (int)item.Tag == slideId;
+                        if (item.Selected != isCurrentSlide)
+                        {
+                            item.Selected = isCurrentSlide;
+                        }
+
+                        if (preserveItemFocus && item.Focused != isCurrentSlide)
+                        {
+                            item.Focused = isCurrentSlide;
+                        }
+
+                        if (isCurrentSlide)
+                        {
+                            item.EnsureVisible();
+                            found = true;
+                        }
+                    }
+
+                    if (!found && _listView.SelectedItems.Count > 0)
+                    {
+                        _listView.SelectedItems.Clear();
                     }
                 }
-
-                if (!found)
+                finally
                 {
-                    _listView.SelectedItems.Clear();
+                    _listView.EndUpdate();
                 }
-
-                ApplyTopMostState();
             }
             catch
             {
@@ -306,8 +330,12 @@ namespace PowerPointJumpPointsAddIn
         {
             try
             {
+                if (_listView.SelectedItems.Count == 0)
+                {
+                    return;
+                }
+
                 _listView.SelectedItems.Clear();
-                ApplyTopMostState();
             }
             catch
             {
@@ -424,7 +452,7 @@ namespace PowerPointJumpPointsAddIn
 
             RefreshJumpPointList();
             HighlightSlideById(slideId.Value);
-            ApplyTopMostState();
+            _controller.ReturnFocusToPowerPoint();
         }
 
         private void GoToPreviousJumpPointFromNavigator()
@@ -432,7 +460,7 @@ namespace PowerPointJumpPointsAddIn
             _controller.GoToPreviousJumpPoint();
             RefreshJumpPointList();
             _controller.NotifyCurrentSlideChanged();
-            ApplyTopMostState();
+            _controller.ReturnFocusToPowerPoint();
         }
 
         private void GoToNextJumpPointFromNavigator()
@@ -440,7 +468,7 @@ namespace PowerPointJumpPointsAddIn
             _controller.GoToNextJumpPoint();
             RefreshJumpPointList();
             _controller.NotifyCurrentSlideChanged();
-            ApplyTopMostState();
+            _controller.ReturnFocusToPowerPoint();
         }
 
         private void RenameSelectedJumpPoint()
@@ -586,13 +614,17 @@ namespace PowerPointJumpPointsAddIn
         {
             try
             {
-                TopMost = _topMostCheckBox.Checked;
+                bool shouldBeTopMost = _topMostCheckBox.Checked;
+                if (TopMost != shouldBeTopMost)
+                {
+                    TopMost = shouldBeTopMost;
+                }
 
-                if (IsHandleCreated)
+                if (shouldBeTopMost && IsHandleCreated)
                 {
                     SetWindowPos(
                         Handle,
-                        _topMostCheckBox.Checked ? HWND_TOPMOST : HWND_NOTOPMOST,
+                        HWND_TOPMOST,
                         0,
                         0,
                         0,
